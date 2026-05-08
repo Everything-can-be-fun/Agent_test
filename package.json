@@ -1,0 +1,15 @@
+{
+  "name": "pomodoro-app",
+  "version": "1.0.0",
+  "description": "A simple Electron pomodoro timer",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "28.3.3"
+  },
+  "overrides": {
+    "@electron/get": "2.0.3"
+  }
+}
