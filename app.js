@@ -10,6 +10,7 @@ const timerEl = document.getElementById('timer');
 const modeEl = document.getElementById('mode');
 const startPauseBtn = document.getElementById('startPauseBtn');
 const resetBtn = document.getElementById('resetBtn');
+const skipBtn = document.getElementById('skipBtn');
 
 function formatTime(seconds) {
   const min = Math.floor(seconds / 60);
@@ -67,6 +68,19 @@ function pauseTimer() {
   updateUI('已暂停');
 }
 
+function skipTimer() {
+  pauseTimer();
+
+  // Switch mode
+  isWorkMode = !isWorkMode;
+
+  // Set timer to appropriate time
+  timeLeft = isWorkMode ? WORK_TIME : BREAK_TIME;
+
+  // Update UI
+  updateUI(isWorkMode ? '准备开始' : '准备休息');
+}
+
 function resetTimer() {
   pauseTimer();
   isWorkMode = true;
@@ -83,5 +97,6 @@ startPauseBtn.addEventListener('click', () => {
 });
 
 resetBtn.addEventListener('click', resetTimer);
+skipBtn.addEventListener('click', skipTimer);
 
 updateUI('准备开始');
